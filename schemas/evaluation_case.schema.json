@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Mr0bitobi/2/blob/main/schemas/evaluation_case.schema.json",
+  "title": "Evidence-first evaluation case",
+  "type": "object",
+  "required": ["case_id", "category", "question", "expected_behavior", "failure_modes"],
+  "properties": {
+    "case_id": {"type": "string", "minLength": 1},
+    "category": {"type": "string", "minLength": 1},
+    "question": {"type": "string", "minLength": 1},
+    "expected_behavior": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1},
+    "failure_modes": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "critical": {"type": "boolean", "default": false},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": false
+}
