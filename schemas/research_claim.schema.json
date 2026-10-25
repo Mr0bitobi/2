@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Mr0bitobi/2/blob/main/schemas/research_claim.schema.json",
+  "title": "Research claim record",
+  "type": "object",
+  "required": ["claim_id", "claim", "epistemic_status", "source_url", "source_location", "confidence"],
+  "properties": {
+    "claim_id": {"type": "string", "minLength": 1},
+    "claim": {"type": "string", "minLength": 1},
+    "epistemic_status": {"enum": ["confirmed", "supported_inference", "disputed", "unknown", "speculation"]},
+    "source_url": {"type": "string", "format": "uri"},
+    "source_location": {"type": "string", "minLength": 1},
+    "source_type": {"type": "string"},
+    "source_date": {"type": ["string", "null"]},
+    "continuity_or_version": {"type": ["string", "null"]},
+    "evidence": {"type": "string"},
+    "supports": {"type": "string"},
+    "does_not_establish": {"type": "string"},
+    "confidence": {"enum": ["high", "medium", "low", "unresolved"]},
+    "counterevidence": {"type": "array", "items": {"type": "string"}},
+    "follow_up": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}
